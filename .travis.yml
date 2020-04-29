@@ -5,4 +5,4 @@ services:
 before_install:
    - docker build -t r/django -f Dockerfile.dev .
 script:
-   - docker run python r/django python ./motherfood/manage.py test    
+   - docker run  r/django python ./motherfood/manage.py test    
