@@ -3,5 +3,6 @@ WORKDIR /app
 RUN django-admin startproject motherfood
 CMD ["cd","motherfood"]
 CMD ["python","./motherfood/manage.py","runserver"]
+EXPOSE 8080
 
 
