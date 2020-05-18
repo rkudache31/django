@@ -3,6 +3,6 @@ services:
     - docker
 
 before_install:
-   - docker build -t rkudache31/djangoweb:v1 .
+   - docker build -t rkudache31/djangoweb .
 script:
-   - docker run  rkudache31/djangoweb:v1 python ./motherfood/manage.py test    
+   - docker run  rkudache31/djangoweb python ./motherfood/manage.py test    
