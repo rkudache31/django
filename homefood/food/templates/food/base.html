@@ -1,0 +1,46 @@
+{%  load static   %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+   <script defer src="{% static 'fontawesome/js/all.min.js' %}"></script>
+   <link rel="stylesheet" href="{% static 'food/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+       
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand"> MotherFood </a>
+        <dev class="navbar">
+<!-- this nav link create space between the every tab-->
+            <a class="nav-item nav-link" href="{% url 'food:create_item' %}">Add Item</a>
+            <a class="nav-item nav-link" href="{% url 'food:index' %}">Delete-Update Item</a>
+           
+            <a class="nav-item nav-link" href="#">Veiw Item</a>
+            {%  if user.is_authenticated  %}
+              <a href="{% url 'logout' %}" >Logout</a>
+              <a href="{% url 'profile' %}">Profile</a>
+              {% else %}
+              <a href="{% url 'login' %}">Login</a>
+              {% endif %}
+        </dev>
+    </nav>
+    {% if messages %}
+     {%  for message  in messages %}
+     <div class="alert alert-{{ message.tags }}">
+         {{ message }}
+
+     </div>
+      
+     {% endfor %}
+     {% endif %}
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

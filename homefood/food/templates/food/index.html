@@ -1,0 +1,57 @@
+
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+   
+   
+   
+</head>
+<body>
+    
+    {% block body %}
+
+    <form action="" method="GET">
+        <input type="search" name="name">
+        <button type="submit">submit</button>
+    </form>
+
+    {% for item in itemlist %}
+ 
+    
+<div class="row">
+    <div class="col-md-3 offset-md-2 ">
+        <img    class="card" hight="150px" width= "90%" src="{{ item.Item_image }}" />
+
+    </div>
+    <div class="col-md-3">
+        <h3> {{ item.Item_name }} </h3>
+        <h3> {{ item.Item_desc }} </h3>
+        <h3> ${{ item.Item_price }} </h3>
+
+    </div>
+    <div class="col-md-2">
+        <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a> 
+
+    </div>
+</div>
+  {% endfor %}
+
+  {% if itemlist.has_previous  %}
+  <a href="?page=1">First</a>
+  <a href="?page={{ itemlist.previous_page_number }} ">Previous</a>
+{% endif %}
+Page: {{ itemlist.number }} of {{ itemlist.paginator.num_pages  }}
+{% if itemlist.has_next %}
+<a href="?page={{ itemlist.next_page_number }} ">Next</a>
+<a href="?page={{ itemlist.paginator.num_pages }}">Last</a>
+{% endif %}
+
+    {% endblock %}
+    
+</body>
+</html>

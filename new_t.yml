@@ -1,0 +1,19 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+   - docker build -t rkudache31/djangoweb:v1 .
+script:
+   - docker run  rkudache31/djangoweb:v1 python ./motherfood/manage.py test    
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "Webapp"
+  env: "Webapp-env" 
+  bucket_name: "elasticbeanstalk-us-east-2-149157452571"
+  bucket_path: "Webapp"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"

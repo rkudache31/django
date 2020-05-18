@@ -1,0 +1,19 @@
+FROM somenickname/python36-node9-nginx
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /code
+WORKDIR /code
+#COPY requirements.txt /code/
+COPY . /code/
+#RUN pip uninstall Django -y
+#RUN apt install python3-dev libpq-dev
+RUN pip install asgiref-3.2.7-py2.py3-none-any.whl
+RUN pip install pytz-2020.1-py2.py3-none-any.whl
+RUN pip install sqlparse-0.3.1-py2.py3-none-any.whl
+RUN  pip install Django-3.0.6-py3-none-any.whl
+RUN  pip install djangorestframework-3.11.0-py3-none-any.whl
+RUN  pip install Pillow-7.1.2-cp36-cp36m-manylinux1_x86_64.whl
+RUN  pip install django_bootstrap_static-4.2.1-py2.py3-none-any.whl
+
+RUN python /code/homefood/manage.py migrate
+
+EXPOSE 8080
