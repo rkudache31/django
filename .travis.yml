@@ -9,10 +9,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-2"
-  app: "Webapp"
-  env: "Webapp-env"
+  app: "Webapp1"
+  env: "Webapp1-env"
   bucket_name: "elasticbeanstalk-us-east-2-149157452571"
-  bucket_path: "Webapp"
+  bucket_path: "Webapp1"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
