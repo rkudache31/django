@@ -8,10 +8,10 @@ script:
    - docker run  rkudache31/djangoweb:v1 python ./homefood/manage.py test    
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-2"
+  region: "us-east-1"
   app: "MyApp"
   env: "MyApp-env"
-  bucket_name: "elasticbeanstalk-us-east-2-149157452571"
+  bucket_name: "elasticbeanstalk-us-east-1-899102500054"
   bucket_path: "MyApp"
   on:
     branch: master
