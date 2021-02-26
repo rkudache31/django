@@ -9,9 +9,9 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "MyApp"
-  env: "MyApp-env"
-  bucket_name: "elasticbeanstalk-us-east-1-899102500054"
+  app: "Myapp1"
+  env: "Myapp1-env"
+  bucket_name: "elasticbeanstalk-us-east-1-562256704977"
   bucket_path: "MyApp"
   on:
     branch: master
